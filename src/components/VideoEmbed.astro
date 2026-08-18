@@ -1,0 +1,36 @@
+---
+interface Props {
+  url: string;
+  title?: string;
+}
+
+const { url, title } = Astro.props;
+
+function getEmbedUrl(url: string): string {
+  let videoId = '';
+  if (url.includes('youtube.com/watch')) {
+    videoId = new URL(url).searchParams.get('v') || '';
+  } else if (url.includes('youtu.be/')) {
+    videoId = url.split('youtu.be/')[1]?.split('?')[0] || '';
+  } else if (url.includes('youtube.com/embed/')) {
+    videoId = url.split('youtube.com/embed/')[1]?.split('?')[0] || '';
+  } else if (url.includes('vimeo.com/')) {
+    videoId = url.split('vimeo.com/')[1]?.split('?')[0] || '';
+  }
+
+  if (url.includes('vimeo.com')) {
+    return `https://player.vimeo.com/video/${videoId}`;
+  }
+  return `https://www.youtube.com/embed/${videoId}`;
+}
+---
+
+<div class="aspect-video rounded-2xl overflow-hidden shadow-sm">
+  <iframe
+    src={getEmbedUrl(url)}
+    title={title || 'Video'}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    class="w-full h-full"
+  ></iframe>
+</div>

@@ -1,0 +1,70 @@
+---
+const navItems = [
+  { label: 'Blog', href: '/blog' },
+  { label: 'Recipes', href: '/recipes' },
+  { label: 'Thoughts', href: '/thoughts' },
+  { label: 'Videos', href: '/videos' },
+  { label: 'Courses', href: '/courses' },
+  { label: 'About', href: '/about' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-brand-dark text-white sticky top-0 z-50">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="font-heading text-2xl font-bold text-brand-accent hover:text-brand-coral transition">
+      Life with Lea
+    </a>
+
+    <ul class="hidden md:flex gap-6 items-center">
+      {navItems.map(item => (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm font-medium transition hover:text-brand-accent',
+              currentPath.startsWith(item.href) ? 'text-brand-accent' : 'text-white/80',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-white text-2xl"
+      aria-label="Toggle menu"
+    >
+      &#9776;
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-white/10 px-6 pb-4">
+    <ul class="flex flex-col gap-3">
+      {navItems.map(item => (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'block py-2 text-sm font-medium transition hover:text-brand-accent',
+              currentPath.startsWith(item.href) ? 'text-brand-accent' : 'text-white/80',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
