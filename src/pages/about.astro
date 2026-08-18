@@ -1,38 +1,213 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HandwrittenNote from '../components/HandwrittenNote.astro';
+import Newsletter from '../components/Newsletter.astro';
 ---
 
-<BaseLayout title="About" description="Learn more about Lea and the story behind Life with Lea.">
-  <section class="max-w-3xl mx-auto px-6 py-16">
-    <h1 class="font-heading text-4xl md:text-5xl font-bold mb-8">About Me</h1>
+<BaseLayout title="About" description="South African in Portugal. Collecting places, thoughts and things worth remembering.">
+  <!-- Hero: Hi I'm Lea + Photo -->
+  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
+        <h1 class="font-heading text-5xl lg:text-6xl xl:text-7xl font-semibold text-plum mb-6 leading-[1.05]">
+          Hi, I'm Lea.
+        </h1>
+        <p class="font-heading text-xl lg:text-2xl italic text-espresso/50 mb-8">Welcome to my little corner of the internet.</p>
+        <p class="text-espresso/70 text-lg leading-relaxed mb-4 max-w-lg">
+          I'm a South African living in Portugal, happiest somewhere between a wild place and a really good cup of coffee.
+        </p>
+        <p class="text-espresso/70 text-lg leading-relaxed mb-4 max-w-lg">
+          Life with Lea is my place to collect the things I never want to forget — places worth going, food worth travelling back for, thoughts I probably overthought, and all the little moments in between.
+        </p>
+        <p class="text-espresso/70 text-lg leading-relaxed max-w-lg">
+          I don't have life figured out. But I'm having a very good time figuring it out.
+        </p>
+      </div>
+      <div class="relative">
+        <div class="aspect-[3/4] rounded-sm overflow-hidden">
+          <img
+            src="/images/IMG_9891.jpg"
+            alt="Lea"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="absolute -bottom-4 -left-4 lg:-bottom-6 lg:-left-6 bg-lavender/30 rounded-sm p-4 lg:p-6 max-w-[200px]">
+          <span class="font-script text-wine text-xl block -rotate-2">coffee first.</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="prose">
-      <p>
-        Hi, I'm Lea! Welcome to <strong>Life with Lea</strong> — a space where I share my favorite recipes,
-        thoughts on everyday life, videos, and courses to help you live a little more intentionally.
-      </p>
+  <!-- A Little More About Me — Lavender scrapbook -->
+  <section class="bg-lavender/20 py-16 lg:py-20">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-plum mb-10 text-center">A little more about me</h2>
 
-      <p>
-        I believe that the best things in life are simple: good food shared with people you love,
-        quiet moments of reflection, and the courage to keep growing. This website is my way of
-        putting that belief into action.
-      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-5 max-w-2xl mx-auto">
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">currently calling</span>
+          <span class="text-espresso/70">Portugal, home</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">originally from</span>
+          <span class="text-espresso/70">South Africa</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">you'll usually find me</span>
+          <span class="text-espresso/70">outside somewhere</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">coffee</span>
+          <span class="text-espresso/70">non-negotiable</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">wine</span>
+          <span class="text-espresso/70">yes</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">ideal Saturday</span>
+          <span class="text-espresso/70">coffee → market → somewhere beautiful → wine</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">always searching for</span>
+          <span class="text-espresso/70">the place tourists haven't found yet</span>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">happy place</span>
+          <span class="text-espresso/70">the South African bush</span>
+        </div>
+        <div class="flex gap-3 sm:col-span-2">
+          <span class="text-[11px] uppercase tracking-[0.2em] text-wine font-medium whitespace-nowrap">life philosophy</span>
+          <span class="text-espresso/70">still working on that one</span>
+        </div>
+      </div>
 
-      <h2>What You'll Find Here</h2>
+      <div class="text-center mt-8">
+        <span class="font-script text-wine text-xl -rotate-1 inline-block">probably planning the next trip →</span>
+      </div>
+    </div>
+  </section>
 
-      <ul>
-        <li><strong>Recipes</strong> — From quick weeknight dinners to weekend baking projects, all tested in my own kitchen.</li>
-        <li><strong>Thoughts on Life</strong> — Reflections on the everyday moments that make life beautiful.</li>
-        <li><strong>Videos</strong> — Watch along as I cook, create, and share my world.</li>
-        <li><strong>Courses</strong> — Learn at your own pace with free and premium courses on topics I'm passionate about.</li>
-      </ul>
+  <!-- Somewhere between here & home — South Africa & Portugal -->
+  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+    <h2 class="font-heading text-4xl lg:text-5xl font-semibold text-plum mb-14 text-center">Somewhere between here & home.</h2>
 
-      <h2>Let's Connect</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- South Africa -->
+      <div class="group">
+        <div class="aspect-[4/5] overflow-hidden rounded-sm mb-6">
+          <img
+            src="/images/IMG_4626.jpg"
+            alt="South African bush landscape"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <h3 class="font-heading text-2xl lg:text-3xl font-semibold text-plum mb-1">South Africa</h3>
+        <p class="font-script text-wine text-lg mb-3 -rotate-1">where I'm from.</p>
+        <p class="text-espresso/60 leading-relaxed">
+          It's where my love for wild places started. There's something about the bush that makes everything else go quiet.
+          Early mornings, dusty roads, endless landscapes and that feeling of being somewhere much bigger than yourself.
+          No matter how far I travel, it'll always feel like home.
+        </p>
+      </div>
 
-      <p>
-        I'd love to hear from you! Whether you have a question, a recipe request, or just want to say hi,
-        feel free to reach out at <a href="mailto:hello@life-with-lea.com">hello@life-with-lea.com</a>.
+      <!-- Portugal -->
+      <div class="group">
+        <div class="aspect-[4/5] overflow-hidden rounded-sm mb-6">
+          <img
+            src="/images/IMG_7620.jpg"
+            alt="Lisbon tiled streets"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <h3 class="font-heading text-2xl lg:text-3xl font-semibold text-plum mb-1">Portugal</h3>
+        <p class="font-script text-wine text-lg mb-3 -rotate-1">where life is now.</p>
+        <p class="text-espresso/60 leading-relaxed">
+          Portugal has become the place where I'm building my life. It's slow mornings over coffee, spontaneous weekends
+          somewhere new, long lunches, ocean air, tiled streets and discovering that there is almost always a good glass
+          of wine nearby. Living here has also given me one of my favourite things: a whole new part of the world to explore.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Things I take very seriously — Full-width plum/lavender -->
+  <section class="bg-plum py-16 lg:py-20">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-cream mb-10">Things I take very seriously</h2>
+      <div class="space-y-4">
+        <p class="text-cream/80 text-lg">Finding the best coffee within walking distance.</p>
+        <p class="text-cream/80 text-lg">Ordering the thing on the menu I've never tried before.</p>
+        <p class="text-cream/80 text-lg">Sunsets.</p>
+        <p class="text-cream/80 text-lg">Window seats.</p>
+        <p class="text-cream/80 text-lg">A good glass of wine.</p>
+        <p class="text-cream/80 text-lg">Taking the scenic route.</p>
+        <p class="text-cream/80 text-lg">Saving approximately 47 places on Google Maps before every trip.</p>
+        <p class="text-cream/80 text-lg">And finding places that make you think, <em class="text-lavender">how did I not know this existed?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Life isn't just the places you go — Emotional centerpiece -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-plum mb-10">Life isn't just the places you go.</h2>
+
+      <div class="text-espresso/65 leading-relaxed space-y-5 text-lg max-w-2xl mx-auto mb-10">
+        <p>
+          I've always loved collecting things — not <em>things</em> exactly, but moments.
+        </p>
+        <p>
+          A coffee somewhere I can't pronounce. A road through the middle of nowhere. A conversation over a bottle of wine. A sunset that makes everyone go quiet for a second.
+        </p>
+        <p>
+          The tiny details you don't realise are going to become memories until they already have.
+        </p>
+        <p>
+          I'm learning that a good life probably isn't one big extraordinary thing. It's a collection of very ordinary things that somehow become extraordinary when you look back.
+        </p>
+      </div>
+
+      <p class="font-heading text-3xl lg:text-4xl font-semibold text-plum italic">
+        This is where I'm keeping mine.
       </p>
     </div>
+  </section>
+
+  <!-- So, where should we go next? -->
+  <section class="max-w-5xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-plum mb-12 text-center">So, where should we go next?</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
+      <a href="/go" class="group block p-6 rounded-sm border border-lavender/30 hover:border-plum/30 transition-colors">
+        <h3 class="font-heading text-xl font-semibold text-plum mb-1 group-hover:text-wine transition">Go →</h3>
+        <p class="font-script text-wine text-lg mb-2">Take me somewhere.</p>
+        <p class="text-espresso/50 text-sm">Travel guides, weekend escapes, hidden places and the occasional detour that turns out better than the plan.</p>
+      </a>
+
+      <a href="/eat-drink" class="group block p-6 rounded-sm border border-lavender/30 hover:border-plum/30 transition-colors">
+        <h3 class="font-heading text-xl font-semibold text-plum mb-1 group-hover:text-wine transition">Eat & Drink →</h3>
+        <p class="font-script text-wine text-lg mb-2">Show me what's worth ordering.</p>
+        <p class="text-espresso/50 text-sm">Coffee shops, restaurants, markets, wine farms and the things I'd happily travel back for.</p>
+      </a>
+
+      <a href="/live" class="group block p-6 rounded-sm border border-lavender/30 hover:border-plum/30 transition-colors">
+        <h3 class="font-heading text-xl font-semibold text-plum mb-1 group-hover:text-wine transition">Live →</h3>
+        <p class="font-script text-wine text-lg mb-2">The everyday stuff.</p>
+        <p class="text-espresso/50 text-sm">Life lately, little favourites, routines and everything that doesn't quite fit into a travel guide.</p>
+      </a>
+
+      <a href="/think" class="group block p-6 rounded-sm border border-lavender/30 hover:border-plum/30 transition-colors">
+        <h3 class="font-heading text-xl font-semibold text-plum mb-1 group-hover:text-wine transition">Think →</h3>
+        <p class="font-script text-wine text-lg mb-2">Stay for the overthinking.</p>
+        <p class="text-espresso/50 text-sm">Creativity, work, growing up, figuring things out and whatever else has been taking up space in my head.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Sign-off -->
+  <section class="py-12 text-center">
+    <p class="font-heading text-xl italic text-espresso/40 mb-3">see you somewhere beautiful,</p>
+    <p class="font-script text-3xl text-plum">Lea x</p>
   </section>
 </BaseLayout>

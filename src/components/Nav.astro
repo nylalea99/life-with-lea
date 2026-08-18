@@ -1,56 +1,53 @@
 ---
 const navItems = [
-  { label: 'Blog', href: '/blog' },
-  { label: 'Recipes', href: '/recipes' },
-  { label: 'Thoughts', href: '/thoughts' },
-  { label: 'Videos', href: '/videos' },
-  { label: 'Courses', href: '/courses' },
+  { label: 'Go', href: '/go' },
+  { label: 'Eat & Drink', href: '/eat-drink' },
+  { label: 'Live', href: '/live' },
+  { label: 'Think', href: '/think' },
   { label: 'About', href: '/about' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-brand-dark text-white sticky top-0 z-50">
-  <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="/" class="font-heading text-2xl font-bold text-brand-accent hover:text-brand-coral transition">
-      Life with Lea
-    </a>
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-cream/90 backdrop-blur-md">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20 transition-all duration-300" id="nav-inner">
+      <a href="/" class="font-heading text-2xl lg:text-3xl font-semibold text-plum tracking-tight hover:text-wine transition">
+        Life with Lea
+      </a>
 
-    <ul class="hidden md:flex gap-6 items-center">
-      {navItems.map(item => (
-        <li>
-          <a
-            href={item.href}
-            class:list={[
-              'text-sm font-medium transition hover:text-brand-accent',
-              currentPath.startsWith(item.href) ? 'text-brand-accent' : 'text-white/80',
-            ]}
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
+      <ul class="hidden lg:flex items-center gap-10">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'text-sm tracking-wide uppercase font-medium transition relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-plum after:transition-all after:duration-300 hover:after:w-full',
+                currentPath.startsWith(item.href) ? 'text-plum' : 'text-espresso/60 hover:text-plum',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
-    <button
-      id="mobile-menu-btn"
-      class="md:hidden text-white text-2xl"
-      aria-label="Toggle menu"
-    >
-      &#9776;
-    </button>
+      <button id="mobile-menu-btn" class="lg:hidden text-plum text-2xl leading-none" aria-label="Toggle menu">
+        <span id="menu-icon">&#9776;</span>
+      </button>
+    </div>
   </nav>
 
-  <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-white/10 px-6 pb-4">
-    <ul class="flex flex-col gap-3">
+  <div id="mobile-menu" class="hidden lg:hidden bg-cream border-t border-lavender/30">
+    <ul class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4">
       {navItems.map(item => (
         <li>
           <a
             href={item.href}
             class:list={[
-              'block py-2 text-sm font-medium transition hover:text-brand-accent',
-              currentPath.startsWith(item.href) ? 'text-brand-accent' : 'text-white/80',
+              'block py-2 text-lg font-heading transition',
+              currentPath.startsWith(item.href) ? 'text-plum' : 'text-espresso/70 hover:text-plum',
             ]}
           >
             {item.label}
@@ -62,9 +59,27 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
+  const header = document.getElementById('site-header');
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+  let menuOpen = false;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('shadow-sm');
+      document.getElementById('nav-inner')?.classList.add('h-16');
+      document.getElementById('nav-inner')?.classList.remove('h-20');
+    } else {
+      header?.classList.remove('shadow-sm');
+      document.getElementById('nav-inner')?.classList.remove('h-16');
+      document.getElementById('nav-inner')?.classList.add('h-20');
+    }
+  });
+
   btn?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
     menu?.classList.toggle('hidden');
+    if (icon) icon.innerHTML = menuOpen ? '&#10005;' : '&#9776;';
   });
 </script>

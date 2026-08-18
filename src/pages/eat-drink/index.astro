@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import HandwrittenNote from '../../components/HandwrittenNote.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('eat-drink')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Eat & Drink" description="Coffee shops, restaurants, wine farms and things worth ordering twice.">
+  <section class="relative h-[40vh] lg:h-[50vh] overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80"
+      alt="Coffee and pastry"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-blackberry/20 to-cream"></div>
+    <div class="absolute bottom-0 left-0 right-0 pb-12 px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="font-heading text-5xl lg:text-7xl font-semibold text-plum mb-3">Eat & Drink</h1>
+        <p class="text-espresso/60 text-lg max-w-xl">Coffee shops, restaurants, wine farms and things worth ordering twice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    {posts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        {posts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            description={post.data.description}
+            href={`/eat-drink/${post.id}`}
+            date={post.data.pubDate}
+            category={post.data.category}
+            image={post.data.heroImage}
+            destination={post.data.destination}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-20">
+        <p class="font-heading text-2xl text-espresso/40 italic">Coming soon — things worth ordering twice.</p>
+        <HandwrittenNote text="order the wine" />
+      </div>
+    )}
+  </section>
+</BaseLayout>
