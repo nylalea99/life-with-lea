@@ -12,7 +12,7 @@ const { title, description, href, image, cta } = Astro.props;
 
 <a href={href} class="group block">
   {image && (
-    <div class="aspect-[4/5] overflow-hidden rounded-sm mb-5">
+    <div class="aspect-[4/3] overflow-hidden rounded-sm mb-5">
       <img
         src={image}
         alt={title}

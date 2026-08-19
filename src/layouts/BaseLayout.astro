@@ -8,15 +8,17 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  type?: 'website' | 'article';
+  pubDate?: Date;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, type, pubDate } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <SEO title={title} description={description} image={image} />
+    <SEO title={title} description={description} image={image} type={type} pubDate={pubDate} />
   </head>
   <body class="min-h-screen flex flex-col bg-cream">
     <Nav />

@@ -2,7 +2,7 @@
 title: "AI Forward Operator"
 description: "Operations is the unsung hero of every team. In the AI age, it just rebranded."
 pubDate: 2026-08-10
-heroImage: "/images/IMG_3864.jpg"
+heroImage: "/images/IMG_3864.webp"
 category: "Think"
 tags: ["operations", "AI", "career", "work"]
 ---

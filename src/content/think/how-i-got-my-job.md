@@ -2,7 +2,7 @@
 title: "How I Got My Job (And Why I Still Can't Explain It)"
 description: "A little pixie dust, not accounting, some Econ, and a lot of luck."
 pubDate: 2026-08-05
-heroImage: "/images/IMG_4233.jpg"
+heroImage: "/images/IMG_4233.webp"
 category: "Think"
 tags: ["career", "personal", "advice", "cloudflare"]
 ---
