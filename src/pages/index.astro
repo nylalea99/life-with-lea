@@ -26,17 +26,17 @@ const destinations = [
 ];
 ---
 
-<BaseLayout title="Home" description="A South African in Portugal collecting places, food, thoughts and little moments worth remembering. Wild places, good coffee, great wine.">
+<BaseLayout title="Wild Places, Good Coffee & Everything In Between" description="A South African in Portugal collecting places, food, thoughts and little moments worth remembering.">
   <!-- Hero Slideshow -->
   <section class="relative h-[85vh] lg:h-screen overflow-hidden">
     <div class="hero-slideshow">
-      <img src="/images/IMG_8001.jpg" alt="" class="hero-slide" />
-      <img src="/images/IMG_7620.jpg" alt="" class="hero-slide" />
-      <img src="/images/IMG_4626.jpg" alt="" class="hero-slide" />
-      <img src="/images/IMG_9891.jpg" alt="" class="hero-slide" />
-      <img src="/images/IMG_6685.jpg" alt="" class="hero-slide" />
+      <img src="/images/IMG_8001.webp" alt="" class="hero-slide" />
+      <img src="/images/IMG_7620.webp" alt="" class="hero-slide" />
+      <img src="/images/IMG_4626.webp" alt="" class="hero-slide" />
+      <img src="/images/IMG_9891.webp" alt="" class="hero-slide" />
+      <img src="/images/IMG_6685.webp" alt="" class="hero-slide" />
     </div>
-    <div class="absolute inset-0 bg-gradient-to-b from-blackberry/30 via-blackberry/10 to-cream"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-blackberry/40 via-blackberry/20 to-blackberry/60"></div>
     <div class="absolute inset-0 flex items-end pb-16 lg:pb-24 px-6 lg:px-8">
       <div class="max-w-7xl mx-auto w-full">
         <p class="font-script text-2xl lg:text-3xl text-cream/80 mb-3 -rotate-1">coffee first.</p>
@@ -44,7 +44,7 @@ const destinations = [
           Wild places, good coffee, great wine & everything in between.
         </h1>
         <a href="/go" class="inline-flex items-center gap-2 text-cream/90 text-sm font-medium tracking-wide border-b border-cream/40 pb-1 hover:border-cream transition-colors duration-300">
-          Explore <span>&rarr;</span>
+          Explore travel guides <span>&rarr;</span>
         </a>
       </div>
     </div>
@@ -56,9 +56,10 @@ const destinations = [
       <div class="lg:col-span-2">
         <div class="aspect-[3/4] rounded-sm overflow-hidden">
           <img
-            src="/images/IMG_9891.jpg"
+            src="/images/IMG_9891.webp"
             alt="Lea"
             class="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
       </div>
@@ -84,29 +85,29 @@ const destinations = [
         title="Go"
         description="Travel guides, hidden gems, hikes and weekend getaways."
         href="/go"
-        image="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80"
-        cta="Explore Go"
+        image="/images/IMG_4626.webp"
+        cta="Browse travel guides"
       />
       <CategoryCard
         title="Eat & Drink"
         description="Coffee shops, restaurants, wine farms and things worth ordering twice."
         href="/eat-drink"
-        image="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80"
-        cta="Explore Eat & Drink"
+        image="/images/IMG_7620.webp"
+        cta="Browse food & drink"
       />
       <CategoryCard
         title="Live"
         description="Life in your twenties, routines, home and the little things."
         href="/live"
-        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80"
-        cta="Explore Live"
+        image="/images/IMG_8001.webp"
+        cta="Browse lifestyle stories"
       />
       <CategoryCard
         title="Think"
         description="Thoughts about creativity, career and figuring things out."
         href="/think"
-        image="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=600&q=80"
-        cta="Explore Think"
+        image="/images/IMG_6685.webp"
+        cta="Browse thoughts & ideas"
       />
     </div>
   </section>

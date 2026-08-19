@@ -19,7 +19,7 @@ const posts = (await getCollection('think')).sort((a, b) => b.data.pubDate.value
     <div class="absolute bottom-0 left-0 right-0 pb-12 px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <h1 class="font-heading text-5xl lg:text-7xl font-semibold text-plum mb-3">Think</h1>
-        <p class="text-espresso/60 text-lg max-w-xl">Thoughts about creativity, career and figuring things out.</p>
+        <p class="text-espresso/80 text-lg max-w-xl">Thoughts about creativity, career and figuring things out.</p>
       </div>
     </div>
   </section>
@@ -41,7 +41,7 @@ const posts = (await getCollection('think')).sort((a, b) => b.data.pubDate.value
       </div>
     ) : (
       <div class="text-center py-20">
-        <p class="font-heading text-2xl text-espresso/40 italic">Coming soon — thoughts along the way.</p>
+        <p class="font-heading text-2xl text-espresso/60 italic">Coming soon — thoughts along the way.</p>
         <HandwrittenNote text="coffee first" />
       </div>
     )}
