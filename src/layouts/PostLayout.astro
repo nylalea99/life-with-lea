@@ -19,7 +19,7 @@ const updatedFormatted = updatedDate?.toLocaleDateString('en-US', { year: 'numer
 const isVideo = heroImage && /\.(mp4|MOV|webm)$/i.test(heroImage);
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
+<BaseLayout title={title} description={description} image={heroImage} type="article" pubDate={pubDate}>
   <article>
     {heroImage && (
       <div class="w-full h-[50vh] lg:h-[65vh] overflow-hidden">
