@@ -11,7 +11,7 @@
     <p class="text-espresso/70 text-sm mb-8">
       Places worth going, things worth tasting and a few thoughts along the way.
     </p>
-    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#" method="post">
+    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" novalidate>
       <input
         type="email"
         name="email"
@@ -21,10 +21,51 @@
       />
       <button
         type="submit"
-        class="px-6 py-3 bg-plum text-cream text-sm font-medium rounded-sm hover:bg-wine transition-colors duration-300"
+        id="newsletter-btn"
+        class="px-6 py-3 bg-plum text-cream text-sm font-medium rounded-sm hover:bg-wine transition-colors duration-300 whitespace-nowrap"
       >
         Send me the good stuff
       </button>
     </form>
+    <p id="newsletter-message" class="mt-4 text-sm hidden"></p>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const btn = document.getElementById('newsletter-btn') as HTMLButtonElement;
+  const msg = document.getElementById('newsletter-message') as HTMLParagraphElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (form.querySelector('input[name="email"]') as HTMLInputElement).value;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    msg.classList.add('hidden');
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        msg.textContent = "You're in! ✨";
+        msg.className = 'mt-4 text-sm text-wine';
+        form.reset();
+      } else {
+        msg.textContent = data.error || 'Something went wrong. Try again.';
+        msg.className = 'mt-4 text-sm text-red-600';
+      }
+    } catch {
+      msg.textContent = 'Network error. Try again.';
+      msg.className = 'mt-4 text-sm text-red-600';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send me the good stuff';
+    }
+  });
+</script>
