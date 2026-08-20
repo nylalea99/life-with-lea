@@ -41,10 +41,3 @@ export async function onRequestPost(context) {
     });
   }
 }
-
-export async function onRequest() {
-  return new Response(JSON.stringify({ success: false, error: 'Method not allowed.' }), {
-    status: 405,
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
